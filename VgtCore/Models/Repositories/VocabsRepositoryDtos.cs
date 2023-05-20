@@ -1,3 +1,5 @@
+public record GetMemberVocablistsQueryDto();
+public record GetMemberVocablistsResultDto();
 public record GetVocablistQueryDto();
 public record GetVocablistResultDto();
 public record GetVocabQueryDto();

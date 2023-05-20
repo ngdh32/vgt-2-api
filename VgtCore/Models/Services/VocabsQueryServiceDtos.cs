@@ -1,0 +1,9 @@
+public record GetMemberVocablistsRequestDto();
+public record GetMemberVocablistsResponseDto();
+public record GetVocablistRequestDto();
+public record GetVocablistResponseDto();
+public record GetVocabRequestDto();
+public record GetVocabResponseDto();
+public record UpdateVocablistRequestDto();
+public record InsertVocablistRequestDto();
+public record DeleteVocablistRequestDto();

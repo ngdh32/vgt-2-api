@@ -5,6 +5,11 @@ public class VocabsRepository : IVocabsRepository
         throw new NotImplementedException();
     }
 
+    public Task<GetMemberVocablistsResultDto> GetMemberVocablists(GetMemberVocablistsQueryDto dto)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<GetVocabResultDto> GetVocab(GetVocabQueryDto dto)
     {
         throw new NotImplementedException();
