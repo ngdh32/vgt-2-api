@@ -1,1 +1,1 @@
-public record ResponseDto();
+public record ResponseDto(ErrorCodeType ErrorCode);
