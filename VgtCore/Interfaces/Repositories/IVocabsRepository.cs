@@ -1,9 +1,9 @@
 public interface IVocabsRepository
 {
-    public Task<GetMemberVocablistsResultDto> GetMemberVocablists(GetMemberVocablistsQueryDto dto);
-    public Task<GetVocablistResultDto> GetVocablist(GetVocablistQueryDto dto);
-    public Task<GetVocabResultDto> GetVocab(GetVocabQueryDto dto);
-    public Task UpdateVocablist(UpdateVocablistDto dto);
-    public Task InsertVocablist(InsertVocablistDto dto);
-    public Task DeleteVocablist(DeleteVocablistDto dto);
+    public Task<List<VocablistEntity>> GetMemberVocablists(string memberId);
+    public Task<VocablistEntity> GetVocablist(string vocablistId);
+    public Task<VocabEntity> GetVocab(string vocabId);
+    public Task UpdateVocablist(VocablistEntity vocablist);
+    public Task InsertVocablist(VocabEntity vocab);
+    public Task DeleteVocablist(string vocablistId);
 }

@@ -1,31 +1,31 @@
 public class VocabsRepository : IVocabsRepository
 {
-    public Task DeleteVocablist(DeleteVocablistDto dto)
+    public Task DeleteVocablist(string vocablistId)
     {
         throw new NotImplementedException();
     }
 
-    public Task<GetMemberVocablistsResultDto> GetMemberVocablists(GetMemberVocablistsQueryDto dto)
+    public Task<List<VocablistEntity>> GetMemberVocablists(string memberId)
     {
         throw new NotImplementedException();
     }
 
-    public Task<GetVocabResultDto> GetVocab(GetVocabQueryDto dto)
+    public Task<VocabEntity> GetVocab(string vocabId)
     {
         throw new NotImplementedException();
     }
 
-    public Task<GetVocablistResultDto> GetVocablist(GetVocablistQueryDto dto)
+    public Task<VocablistEntity> GetVocablist(string vocablistId)
     {
         throw new NotImplementedException();
     }
 
-    public Task InsertVocablist(InsertVocablistDto dto)
+    public Task InsertVocablist(VocabEntity vocab)
     {
         throw new NotImplementedException();
     }
 
-    public Task UpdateVocablist(UpdateVocablistDto dto)
+    public Task UpdateVocablist(VocablistEntity vocablist)
     {
         throw new NotImplementedException();
     }
