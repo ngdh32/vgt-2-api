@@ -2,12 +2,20 @@ using AutoMapper;
 
 public class VocabsQueryService : IVocabsQueryService
 {
-    private readonly IVocabsRepository _repo;
+    private readonly IVocablistRepository _vocablistRepo;
+    private readonly IVocabRepository _vocabRepo;
+    private readonly IExampleRepository _exampleRepo;
     private readonly IMapper _mapper;
 
-    public VocabsQueryService(IVocabsRepository repo, IMapper mapper)
+    public VocabsQueryService(IVocablistRepository vocablistRepo
+        , IVocabRepository vocabRepo
+        , IExampleRepository exampleRepo
+        , IMapper mapper)
     {
-        _repo = repo;
+        _vocablistRepo = vocablistRepo;
+        _vocabRepo = vocabRepo;
+        _exampleRepo = exampleRepo;
+        _mapper = mapper;
     }
 
     public async Task<GetMemberVocablistsResponseDto> GetMemberVocablists(GetMemberVocablistsRequestDto dto)
