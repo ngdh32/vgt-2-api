@@ -21,7 +21,7 @@ public class VocabsQueryService : IVocabsQueryService
     public async Task<GetMemberVocablistsResponseDto> GetMemberVocablists(GetMemberVocablistsRequestDto dto)
     {
         var list = await _repo.GetMemberVocablists(dto.MemberId);
-        var result = _mapper.Map<List<VocablistBaseDto>>(list);
+        var result = _mapper.Map<List<VocablistBaseDto>>(list);asdadasa
         return new GetMemberVocablistsResponseDto(result);
     }
 

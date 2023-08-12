@@ -1,4 +1,1 @@
-public interface IVocablistViewRepository
-{
-    public GetMemberVocablists
-}
+public interface IVocablistViewRepository : IBaseRepository<VocablistEntity>{}
