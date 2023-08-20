@@ -1,4 +1,4 @@
-public abstract class EfBaseEntity
+public abstract class EFBaseEntity
 {
     public string Id { get; set; }
 }

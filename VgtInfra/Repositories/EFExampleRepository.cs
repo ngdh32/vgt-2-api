@@ -1,6 +1,6 @@
-public class EFVocablistRepository : IVocablistRepository
+public class EFExampleRepository : IExampleRepository
 {
-    public void Add(VocablistEntity entity)
+    public void Add(ExampleEntity entity)
     {
         throw new NotImplementedException();
     }
@@ -10,17 +10,17 @@ public class EFVocablistRepository : IVocablistRepository
         throw new NotImplementedException();
     }
 
-    public VocablistEntity Get(string id)
+    public ExampleEntity Get(string id)
     {
         throw new NotImplementedException();
     }
 
-    public List<VocablistEntity> GetAll()
+    public List<ExampleEntity> GetAll()
     {
         throw new NotImplementedException();
     }
 
-    public void Update(VocablistEntity entity)
+    public void Update(ExampleEntity entity)
     {
         throw new NotImplementedException();
     }

@@ -7,7 +7,5 @@ public static class InitCor{
         services.AddAutoMapper(cfg => {
             VocabsQueryServiceDtoMappers.SetMapperConfiguration(cfg);
         });
-
-        
     }
 }

@@ -1,4 +1,4 @@
-public class EfVocabEntity : EfBaseEntity
+public class EFVocabEntity : EFBaseEntity
 {
     public string Word { get; set; }
     public string Definition { get; set; }

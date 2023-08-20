@@ -20,15 +20,18 @@ public class VocabsQueryService : IVocabsQueryService
 
     public async Task<GetMemberVocablistsResponseDto> GetMemberVocablists(GetMemberVocablistsRequestDto dto)
     {
-        var list = await _repo.GetMemberVocablists(dto.MemberId);
-        var result = _mapper.Map<List<VocablistBaseDto>>(list);asdadasa
-        return new GetMemberVocablistsResponseDto(result);
+        // var list = await _repo.GetMemberVocablists(dto.MemberId);
+        // var result = _mapper.Map<List<VocablistBaseDto>>(list);
+        // return new GetMemberVocablistsResponseDto(result);
+        throw new NotImplementedException();
+
     }
 
     public async Task<GetVocablistResponseDto> GetVocablist(GetVocablistRequestDto dto)
     {
-        var list = await _repo.GetVocablist(dto.VocablistId);
-        var result = _mapper.Map<VocablistViewDto>(list);
-        return new GetVocablistResponseDto(result);
+        // var list = await _repo.GetVocablist(dto.VocablistId);
+        // var result = _mapper.Map<VocablistViewDto>(list);
+        // return new GetVocablistResponseDto(result);
+        throw new NotImplementedException();
     }
 }
