@@ -1,5 +1,5 @@
 public interface IVocabsQueryService
 {
-    public Task<GetMemberVocablistsResponseDto> GetMemberVocablists(GetMemberVocablistsRequestDto dto);
-    public Task<GetVocablistResponseDto> GetVocablist(GetVocablistRequestDto dto);
+    public GetMemberVocablistsResponseDto GetMemberVocablists(GetMemberVocablistsRequestDto dto);
+    public GetVocablistResponseDto GetVocablist(GetVocablistRequestDto dto);
 }

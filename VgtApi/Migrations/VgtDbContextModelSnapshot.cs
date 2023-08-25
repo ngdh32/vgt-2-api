@@ -76,6 +76,10 @@ namespace VgtApi.Migrations
                     b.Property<int>("Language")
                         .HasColumnType("int");
 
+                    b.Property<string>("MemberId")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");

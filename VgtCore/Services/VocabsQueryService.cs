@@ -1,33 +1,25 @@
-using AutoMapper;
-
 public class VocabsQueryService : IVocabsQueryService
 {
-    private readonly IVocablistRepository _vocablistRepo;
-    private readonly IVocabRepository _vocabRepo;
-    private readonly IExampleRepository _exampleRepo;
-    private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public VocabsQueryService(IVocablistRepository vocablistRepo
-        , IVocabRepository vocabRepo
-        , IExampleRepository exampleRepo
-        , IMapper mapper)
+    public VocabsQueryService(IUnitOfWork unitOfWork)
     {
-        _vocablistRepo = vocablistRepo;
-        _vocabRepo = vocabRepo;
-        _exampleRepo = exampleRepo;
-        _mapper = mapper;
+        _unitOfWork = unitOfWork;
     }
 
-    public async Task<GetMemberVocablistsResponseDto> GetMemberVocablists(GetMemberVocablistsRequestDto dto)
+    public GetMemberVocablistsResponseDto GetMemberVocablists(GetMemberVocablistsRequestDto dto)
     {
-        // var list = await _repo.GetMemberVocablists(dto.MemberId);
-        // var result = _mapper.Map<List<VocablistBaseDto>>(list);
-        // return new GetMemberVocablistsResponseDto(result);
-        throw new NotImplementedException();
+        var vocablists = _unitOfWork.VocablistRepository.GetAll().Where(x => x.MemberId == dto.MemberId).ToList();
+        var result = new List<VocablistBaseDto>();
+        foreach(var vocablist in vocablists){
+            var item = new VocablistBaseDto(vocablist.Id, vocablist.Name, vocablist.Language);
+            result.Add(item);
+        }
 
+        return new GetMemberVocablistsResponseDto(result);
     }
 
-    public async Task<GetVocablistResponseDto> GetVocablist(GetVocablistRequestDto dto)
+    public GetVocablistResponseDto GetVocablist(GetVocablistRequestDto dto)
     {
         // var list = await _repo.GetVocablist(dto.VocablistId);
         // var result = _mapper.Map<VocablistViewDto>(list);

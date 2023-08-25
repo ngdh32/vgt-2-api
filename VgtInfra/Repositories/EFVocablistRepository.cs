@@ -10,6 +10,7 @@ public class EFVocablistRepository : IVocablistRepository
     {
         var newEntity = new EFVocablistEntity(){
             Name = entity.Name,
+            MemberId = entity.MemberId,
             Language = (int)entity.Language
         };
 
@@ -33,6 +34,7 @@ public class EFVocablistRepository : IVocablistRepository
         
         var entity = new VocablistEntity(){
             Id = efEntity.Id,
+            MemberId = efEntity.MemberId,
             Name = efEntity.Name,
             Language = (LanguageType)efEntity.Language
         };
@@ -45,6 +47,7 @@ public class EFVocablistRepository : IVocablistRepository
         foreach(var entity in _vgtContext.Vocablists.ToList()){
             var item = new VocablistEntity(){
                 Id = entity.Id,
+                MemberId = entity.MemberId,
                 Name = entity.Name,
                 Language = (LanguageType)entity.Language
             };
@@ -58,6 +61,7 @@ public class EFVocablistRepository : IVocablistRepository
     public void Update(VocablistEntity entity)
     {
         var efEntity = _vgtContext.Vocablists.First(x => x.Id == entity.Id);
+        efEntity.MemberId = entity.MemberId;
         efEntity.Name = entity.Name;
         efEntity.Language = (int)entity.Language;
     }
