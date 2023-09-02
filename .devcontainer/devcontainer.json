@@ -7,11 +7,10 @@
 	"features": {
 		"ghcr.io/devcontainers/features/azure-cli:1": {},
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
-		"ghcr.io/devcontainers-contrib/features/mysql-homebrew:1": {},
 		"ghcr.io/rchaganti/vsc-devcontainer-features/azurebicep:1": {},
-    "ghcr.io/devcontainers/features/azure-cli:latest": {
-      "version": "latest"
-    }
+	    "ghcr.io/devcontainers/features/azure-cli:latest": {
+      		"version": "latest"
+    	}
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -23,7 +22,7 @@
 	// }
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	,"postCreateCommand": "bash /workspaces/vgt-2-api/Init.sh"
+	,"postCreateCommand": ". /workspaces/vgt-2-api/Init.sh"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
