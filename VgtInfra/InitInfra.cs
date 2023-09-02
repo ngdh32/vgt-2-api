@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 public static class InitInfra{
     public static void InitService(IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = Environment.GetEnvironmentVariable("MySQLConnectionString");
+        var connectionString = Environment.GetEnvironmentVariable("MYSQLCONNECTIONSTRING");
         Console.WriteLine(connectionString);
         services.AddDbContext<VgtDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), mySqlOptions => {
             mySqlOptions.MigrationsAssembly("VgtApi");

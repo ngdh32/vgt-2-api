@@ -5,9 +5,9 @@ services:
     image: mysql:latest
     container_name: db
     environment:
-      MYSQL_ROOT_PASSWORD: $MYSQLPassword
+      MYSQL_ROOT_PASSWORD: $MYSQLPASSWORD
       MYSQL_DATABASE: VGT2
-      MYSQL_PASSWORD: $MYSQLPassword
+      MYSQL_PASSWORD: $MYSQLPASSWORD
     ports:
       - "3306:3306"
     volumes:
