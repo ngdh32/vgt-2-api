@@ -1,27 +1,68 @@
 public class EFVocabRepository : IVocabRepository
 {
-    void IBaseRepository<VocabEntity>.Add(VocabEntity entity)
-    {
-        throw new NotImplementedException();
+    private readonly VgtDbContext _vgtContext;
+
+    public EFVocabRepository(VgtDbContext vgtContext){
+        _vgtContext = vgtContext;
     }
 
-    void IBaseRepository<VocabEntity>.Delete(string id)
+    public void Add(VocabEntity entity)
     {
-        throw new NotImplementedException();
+        var newEntity = new EFVocabEntity(){
+            Word = entity.Word,
+            Definition = entity.Definition,
+            VocablistId = entity.VocablistId
+        };
+
+        _vgtContext.Vocabs.Add(newEntity);
     }
 
-    VocabEntity IBaseRepository<VocabEntity>.Get(string id)
+    public void Delete(string id)
     {
-        throw new NotImplementedException();
+        var toDelete = _vgtContext.Vocabs.FirstOrDefault(x => x.Id == id);
+        if (toDelete is not null){
+            _vgtContext.Vocabs.Remove(toDelete);
+        }
     }
 
-    List<VocabEntity> IBaseRepository<VocabEntity>.GetAll()
+    public VocabEntity Get(string id)
     {
-        throw new NotImplementedException();
+        var efEntity = _vgtContext.Vocabs.FirstOrDefault(x => x.Id == id);
+        if (efEntity is null){
+            return (VocabEntity)null;
+        }
+        
+        var entity = new VocabEntity(){
+            Id = efEntity.Id,
+            Word = efEntity.Word,
+            Definition = efEntity.Definition,
+            VocablistId = efEntity.VocablistId
+        };
+        return entity;
     }
 
-    void IBaseRepository<VocabEntity>.Update(VocabEntity entity)
+    public List<VocabEntity> GetAll()
     {
-        throw new NotImplementedException();
+        var result = new List<VocabEntity>();
+        foreach(var entity in _vgtContext.Vocabs.ToList()){
+            var item = new VocabEntity(){
+                Id = entity.Id,
+                Word = entity.Word,
+                Definition = entity.Definition,
+                VocablistId = entity.VocablistId
+            };
+
+            result.Add(item);
+        }
+
+        return result;
+    }
+
+    public void Update(VocabEntity entity)
+    {
+        var efEntity = _vgtContext.Vocabs.First(x => x.Id == entity.Id);
+        efEntity.Word = entity.Word;
+        efEntity.Definition = entity.Definition;
+        efEntity.VocablistId = entity.VocablistId;
     }
 }

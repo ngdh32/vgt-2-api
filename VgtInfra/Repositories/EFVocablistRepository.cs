@@ -1,27 +1,68 @@
 public class EFVocablistRepository : IVocablistRepository
 {
+    private readonly VgtDbContext _vgtContext;
+
+    public EFVocablistRepository(VgtDbContext vgtContext){
+        _vgtContext = vgtContext;
+    }
+
     public void Add(VocablistEntity entity)
     {
-        throw new NotImplementedException();
+        var newEntity = new EFVocablistEntity(){
+            Name = entity.Name,
+            MemberId = entity.MemberId,
+            Language = (int)entity.Language
+        };
+
+        _vgtContext.Vocablists.Add(newEntity);
     }
 
     public void Delete(string id)
     {
-        throw new NotImplementedException();
+        var toDelete = _vgtContext.Vocablists.FirstOrDefault(x => x.Id == id);
+        if (toDelete is not null){
+            _vgtContext.Vocablists.Remove(toDelete);
+        }
     }
 
     public VocablistEntity Get(string id)
     {
-        throw new NotImplementedException();
+        var efEntity = _vgtContext.Vocablists.FirstOrDefault(x => x.Id == id);
+        if (efEntity is null){
+            return (VocablistEntity)null;
+        }
+        
+        var entity = new VocablistEntity(){
+            Id = efEntity.Id,
+            MemberId = efEntity.MemberId,
+            Name = efEntity.Name,
+            Language = (LanguageType)efEntity.Language
+        };
+        return entity;
     }
 
     public List<VocablistEntity> GetAll()
     {
-        throw new NotImplementedException();
+        var result = new List<VocablistEntity>();
+        foreach(var entity in _vgtContext.Vocablists.ToList()){
+            var item = new VocablistEntity(){
+                Id = entity.Id,
+                MemberId = entity.MemberId,
+                Name = entity.Name,
+                Language = (LanguageType)entity.Language
+            };
+
+            result.Add(item);
+        }
+
+        return result;
     }
 
     public void Update(VocablistEntity entity)
     {
-        throw new NotImplementedException();
+        var efEntity = _vgtContext.Vocablists.First(x => x.Id == entity.Id);
+        efEntity.MemberId = entity.MemberId;
+        efEntity.Name = entity.Name;
+        efEntity.Language = (int)entity.Language;
     }
 }

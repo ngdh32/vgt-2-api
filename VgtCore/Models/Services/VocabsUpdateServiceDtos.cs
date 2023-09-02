@@ -1,0 +1,1 @@
+public record InsertVocablistRequestDto(string MemberId, LanguageType language, string Name);

@@ -1,5 +1,6 @@
 /VgtApi/bin
 /VgtApi/obj
+/VgtApi/Migrations
 /VgtCore/bin
 /VgtCore/obj
 /VgtInfra/bin
