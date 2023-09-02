@@ -3,7 +3,7 @@
 # export MySQLConnectionString=""
 
 docker-compose -f /workspaces/vgt-2-api/VgtInfra/docker-compose-mysql.yml down
-docker-compose -f /workspaces/vgt-2-api/VgtInfra/docker-compose-mysql.yml up 
+docker-compose -f /workspaces/vgt-2-api/VgtInfra/docker-compose-mysql.yml up --detach
 
 cd /workspaces/vgt-2-api/VgtApi/
 dotnet new tool-manifest --force
