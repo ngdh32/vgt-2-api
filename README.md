@@ -2,12 +2,12 @@
 
 # Run docker compose to start mysql and PhpMyAdmin
 ```
-docker-compose -f /workspaces/vgt-2-api/VgtInfra/docker-compose-mysql.yml up 
+docker-compose -f /workspaces/vgt-2-api/VgtInfra/docker-compose-mysql.yml up --detach
 ```
 
 # Shut down the mysql and phyMyAdmin
 ```
-docker-compose -f /workspaces/vgt-2-api/VgtInfra/docker-compose-mysql.yml down
+docker-compose -f /workspaces/vgt-2-api/VgtInfra/docker-compose-mysql.yml down 
 ```
 
 # Create EF Migration
