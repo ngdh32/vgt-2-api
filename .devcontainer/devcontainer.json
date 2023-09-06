@@ -5,10 +5,16 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/dotnet:0-7.0",
 	"features": {
-		"ghcr.io/devcontainers/features/azure-cli:1": {},
-		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
-		"ghcr.io/rchaganti/vsc-devcontainer-features/azurebicep:1": {},
+		"ghcr.io/devcontainers/features/azure-cli:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+			"version": "latest"
+		},
 	    "ghcr.io/devcontainers/features/azure-cli:latest": {
+      		"version": "latest"
+    	},
+	    "ghcr.io/devcontainers/features/terraform:1": {
       		"version": "latest"
     	}
 	}
@@ -25,7 +31,22 @@
 	,"postCreateCommand": ". /workspaces/vgt-2-api/Init.sh"
 
 	// Configure tool-specific properties.
-	// "customizations": {},
+	,"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+		// Add the IDs of extensions you want installed when the container is created.
+		"extensions": 
+			[
+				"ms-azuretools.vscode-azureappservice"
+				, "ms-vscode.azurecli"
+				, "msazurermtools.azurerm-vscode-tools"
+				, "ms-azuretools.vscode-azurestorage"
+				, "ms-vscode.vscode-node-azure-pack"
+			]
+		}
+	}
+
+
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	,"remoteUser": "root"
