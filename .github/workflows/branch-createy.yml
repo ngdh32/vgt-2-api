@@ -5,7 +5,7 @@ name: Create Branch
 
 on:
   branch_protection_rule:
-    types ["created"]
+    types [created]
 
 env: 
   TF_VAR_BRANCH_NAME: ${ github.ref_name }
