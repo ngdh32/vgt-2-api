@@ -7,15 +7,20 @@ on:
   create
 
 env: 
-  TF_VAR_BRANCH_NAME: ${ github.ref_name }
+  TF_VAR_BRANCH_NAME: ${{ github.ref_name }}
 
 jobs:
   create-branch:
     runs-on: ubuntu-latest
     steps:
       - name: Set up environment variable
-        run: echo $TF_VAR_BRANCH_NAME
+        run: echo $TF_VAR_BRANCH_NAME 
+      
+      - name: Set up environment variable 2
+        run: echo ${{ github.ref_name }}
 
+      - name: Set up environment variable 3
+        run: echo ${{ env.TF_VAR_BRANCH_NAME }}
       
   # build:
 
