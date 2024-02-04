@@ -28,7 +28,7 @@
 	// }
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	,"postCreateCommand": ". /workspaces/vgt-2-api/Init.sh"
+	,"postCreateCommand": ". /workspaces/vgt-2-api/Init.sh "
 
 	// Configure tool-specific properties.
 	,"customizations": {
@@ -43,6 +43,7 @@
 				, "ms-azuretools.vscode-azurestorage"
 				, "ms-vscode.vscode-node-azure-pack"
 				, "GitHub.vscode-github-actions"
+				, "ms-dotnettools.csdevkit"
 			]
 		}
 	}
