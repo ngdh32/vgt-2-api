@@ -41,3 +41,6 @@ override.tf.json
 .terraformrc
 terraform.rc
 .terraform.lock.hcl
+
+# Ignore dotnet tool json because it should be installed by postcreatecommand every time the codepsace is created
+.config/dotnet-tools.json
